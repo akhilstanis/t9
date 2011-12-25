@@ -28,3 +28,5 @@ end
 #
 # gem "activerecord"
 # gem "mysql2", "0.2.7"
+
+gem 'bloomfilter-rb'

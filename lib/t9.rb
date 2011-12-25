@@ -1,10 +1,11 @@
-require 'pp'
+require 'bloomfilter-rb'
 
 class T9
 
   CHARS = [ nil, nil, %w(a b c), %w(d e f), %w(g h i), %w(j k l), %w(m n o), %w(p q r s), %w(t u v), %w(w x y z) ]
 
   def initialize
+    @words = BloomFilter::Native.load '/Users/akhil/Desktop/ruby/T9/lib/words'
   end
 
   def decode_key k
@@ -59,6 +60,12 @@ class T9
       hash[a] = nil
     end
     hash
+  end
+
+  def get_valid_words keys
+    humanize(keys).select do |x|
+      @words.include? x
+    end
   end
 
 end

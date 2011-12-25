@@ -25,4 +25,8 @@ describe T9 do
     @o.humanize([3,3]).should == ['dd','de','df', 'ed','ee','ef', 'fd','fe','ff']
   end
 
+  it "should find valid words" do
+    @o.get_valid_words([4,3,5,5,6]).should == ['hello']
+  end
+
 end
